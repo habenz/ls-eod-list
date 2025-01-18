@@ -1,5 +1,7 @@
+import ItemAdder from "./ItemAdder";
+
 function App() {
-  return <div>Here's where the app is</div>;
+  return <ItemAdder name="croissant" />;
 }
 
 export default App;
