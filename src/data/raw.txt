@@ -1,0 +1,39 @@
+croissant: plain, chocolate, multigrain, raisin, almond, pistachio, fruit
+- crx: plain, choc, multi, rais, almond, pista, fruit
+kouign-amann
+- k-amann
+palmier
+- palm
+brioche frite
+- b-frite
+scone: feta-zatar, marzipan, pesto gruyere, pear lemon
+- scone: feta, marz, pesto, lemon
+cookie: brown butter choc-chip, fudge, chai choc-chip, vegan chip, cherry oat, pumpkin, dog
+- cookie: BBCC, fudge, chai, veg, cherry, pumpkin, dog
+brownie
+- brownie
+pound cake: choc hazelnut, vanilla, matcha, pumpkin
+- LB: choc-haze, van, matcha, pumpkin
+
+barbari
+- barbari
+focaccia
+- focc
+brioche
+- brioche
+baguette
+- baguette
+pizza: cheese, onion, mushroom, arugula
+- pizza: cheese, onion, mush, arugula
+
+eclair: vanilla, chocolate, lavender, cardamom, pistachio
+- eclair: van, choc, lav, card, pista
+cake slice: chocolate, vanilla cheese, akbar cheese
+- slice: choc, van cheese, akbar
+tiramisu: , vegan
+- tira: , veg
+
+parfait
+- parfait
+hard boiled egg
+- egg
