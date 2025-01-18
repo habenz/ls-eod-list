@@ -4,32 +4,32 @@
     "short_name": "crx",
     "types": [
       {
-        "name": " plain",
-        "short_name": " plain"
+        "name": "plain",
+        "short_name": "plain"
       },
       {
         "name": "chocolate",
-        "short_name": " choc"
+        "short_name": "choc"
       },
       {
         "name": "multigrain",
-        "short_name": " multi"
+        "short_name": "multi"
       },
       {
         "name": "raisin",
-        "short_name": " rais"
+        "short_name": "rais"
       },
       {
         "name": "almond",
-        "short_name": " almond"
+        "short_name": "almond"
       },
       {
         "name": "pistachio",
-        "short_name": " pista"
+        "short_name": "pista"
       },
       {
         "name": "fruit",
-        "short_name": " fruit"
+        "short_name": "fruit"
       }
     ]
   },
@@ -50,20 +50,20 @@
     "short_name": "scone",
     "types": [
       {
-        "name": " feta-zatar",
-        "short_name": " feta"
+        "name": "feta-zatar",
+        "short_name": "feta"
       },
       {
         "name": "marzipan",
-        "short_name": " marz"
+        "short_name": "marz"
       },
       {
         "name": "pesto gruyere",
-        "short_name": " pesto"
+        "short_name": "pesto"
       },
       {
         "name": "pear lemon",
-        "short_name": " lemon"
+        "short_name": "lemon"
       }
     ]
   },
@@ -72,32 +72,32 @@
     "short_name": "cookie",
     "types": [
       {
-        "name": " brown butter choc-chip",
-        "short_name": " BBCC"
+        "name": "brown butter choc-chip",
+        "short_name": "BBCC"
       },
       {
         "name": "fudge",
-        "short_name": " fudge"
+        "short_name": "fudge"
       },
       {
         "name": "chai choc-chip",
-        "short_name": " chai"
+        "short_name": "chai"
       },
       {
         "name": "vegan chip",
-        "short_name": " veg"
+        "short_name": "veg"
       },
       {
         "name": "cherry oat",
-        "short_name": " cherry"
+        "short_name": "cherry"
       },
       {
         "name": "pumpkin",
-        "short_name": " pumpkin"
+        "short_name": "pumpkin"
       },
       {
         "name": "dog",
-        "short_name": " dog"
+        "short_name": "dog"
       }
     ]
   },
@@ -110,20 +110,20 @@
     "short_name": "LB",
     "types": [
       {
-        "name": " choc hazelnut",
-        "short_name": " choc-haze"
+        "name": "choc hazelnut",
+        "short_name": "choc-haze"
       },
       {
         "name": "vanilla",
-        "short_name": " van"
+        "short_name": "van"
       },
       {
         "name": "matcha",
-        "short_name": " matcha"
+        "short_name": "matcha"
       },
       {
         "name": "pumpkin",
-        "short_name": " pumpkin"
+        "short_name": "pumpkin"
       }
     ]
   },
@@ -148,20 +148,20 @@
     "short_name": "pizza",
     "types": [
       {
-        "name": " cheese",
-        "short_name": " cheese"
+        "name": "cheese",
+        "short_name": "cheese"
       },
       {
         "name": "onion",
-        "short_name": " onion"
+        "short_name": "onion"
       },
       {
         "name": "mushroom",
-        "short_name": " mush"
+        "short_name": "mush"
       },
       {
         "name": "arugula",
-        "short_name": " arugula"
+        "short_name": "arugula"
       }
     ]
   },
@@ -170,24 +170,24 @@
     "short_name": "eclair",
     "types": [
       {
-        "name": " vanilla",
-        "short_name": " van"
+        "name": "vanilla",
+        "short_name": "van"
       },
       {
         "name": "chocolate",
-        "short_name": " choc"
+        "short_name": "choc"
       },
       {
         "name": "lavender",
-        "short_name": " lav"
+        "short_name": "lav"
       },
       {
         "name": "cardamom",
-        "short_name": " card"
+        "short_name": "card"
       },
       {
         "name": "pistachio",
-        "short_name": " pista"
+        "short_name": "pista"
       }
     ]
   },
@@ -196,16 +196,16 @@
     "short_name": "slice",
     "types": [
       {
-        "name": " chocolate",
-        "short_name": " choc"
+        "name": "chocolate",
+        "short_name": "choc"
       },
       {
         "name": "vanilla cheese",
-        "short_name": " van cheese"
+        "short_name": "van cheese"
       },
       {
         "name": "akbar cheese",
-        "short_name": " akbar"
+        "short_name": "akbar"
       }
     ]
   },
@@ -214,12 +214,12 @@
     "short_name": "tira",
     "types": [
       {
-        "name": " ",
-        "short_name": " "
+        "name": "",
+        "short_name": ""
       },
       {
         "name": "vegan",
-        "short_name": " veg"
+        "short_name": "veg"
       }
     ]
   },

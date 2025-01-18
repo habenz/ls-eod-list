@@ -13,7 +13,7 @@ with open("raw.txt", encoding="utf-8-sig") as f:
             short_type_names = short_type_names.split(",")
             types = []
             for short, name in zip(short_type_names, type_names):
-                types.append({"name": name, "short_name": short})
+                types.append({"name": name.strip(), "short_name": short.strip()})
             curr_item["types"] = types
             items.append(curr_item)
         elif ":" in line:

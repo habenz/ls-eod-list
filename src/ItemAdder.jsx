@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 
 function ItemAdder({ name }) {
+  console.log(name);
   const [count, setCount] = useState(0);
   const prev = useRef(count);
   const [textEditing, setEditing] = useState(false);
