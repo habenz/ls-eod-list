@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 
 function ItemAdder({ name }) {
-  console.log(name);
   const [count, setCount] = useState(0);
   const prev = useRef(count);
   const [textEditing, setEditing] = useState(false);
@@ -37,12 +36,12 @@ function ItemAdder({ name }) {
   const trimmedName = name.trim();
   const displayName = trimmedName[0].toUpperCase() + trimmedName.slice(1);
 
-  const buttonStyles = "text-xl font-bold border rounded p-1 px-3";
+  const buttonStyles = "text-lg font-bold border rounded p-1 px-3";
 
   return (
-    <div className="my-1">
+    <div className="my-0.5">
       <div className="flex justify-between mx-3">
-        <div className="text-lg">{displayName}</div>
+        <div>{displayName}</div>
         <div className="flex items-center justify-evenly max-w-52">
           <button onClick={decrement} className={buttonStyles}>
             {/* Hilariously this is an en dash (–) maybe use an icon */}–
