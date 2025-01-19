@@ -40,7 +40,7 @@ function ItemAdder({ name }) {
 
   return (
     <div className="my-0.5">
-      <div className="flex justify-between mx-3">
+      <div className="flex justify-between">
         <div>{displayName}</div>
         <div className="flex items-center justify-evenly max-w-52">
           <button onClick={decrement} className={buttonStyles}>
