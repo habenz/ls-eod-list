@@ -34,12 +34,15 @@ function ItemAdder({ name }) {
     setEditing(false);
   };
 
+  const trimmedName = name.trim();
+  const displayName = trimmedName[0].toUpperCase() + trimmedName.slice(1);
+
   const buttonStyles = "text-xl font-bold border rounded p-1 px-3";
 
   return (
     <div className="my-1">
       <div className="flex justify-between mx-3">
-        <div className="text-lg">{name[0].toUpperCase() + name.slice(1)}</div>
+        <div className="text-lg">{displayName}</div>
         <div className="flex items-center justify-evenly max-w-52">
           <button onClick={decrement} className={buttonStyles}>
             {/* Hilariously this is an en dash (–) maybe use an icon */}–
