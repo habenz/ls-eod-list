@@ -52,7 +52,11 @@ function ItemCounters({ userAddedItems, items, condensed }) {
   return (
     <>
       {userAddedItems.map((item) => (
-        <ItemAdder name={item} key={item} condensed={condensed} />
+        <ItemAdder
+          item={{ name: item, shortName: item }}
+          key={item}
+          condensed={condensed}
+        />
       ))}
       {items.map((item) => {
         if (item.types) {
@@ -60,15 +64,24 @@ function ItemCounters({ userAddedItems, items, condensed }) {
             <>
               {item.types.map((itemFlavor) => {
                 const name = `${itemFlavor.name} ${item.name}`;
+                const shortName = `${itemFlavor.short_name} ${item.short_name}`;
+                const itemProp = {
+                  name: name.trim(),
+                  shortName: shortName.trim(),
+                };
                 return (
-                  <ItemAdder name={name} key={name} condensed={condensed} />
+                  <ItemAdder item={itemProp} key={name} condensed={condensed} />
                 );
               })}
             </>
           );
         } else {
           return (
-            <ItemAdder name={item.name} key={item.name} condensed={condensed} />
+            <ItemAdder
+              item={{ name: item.name, shortName: item.short_name }}
+              key={item.name}
+              condensed={condensed}
+            />
           );
         }
       })}

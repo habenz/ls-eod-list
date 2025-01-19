@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-function ItemAdder({ name, condensed }) {
+function ItemAdder({ item, condensed }) {
   const [count, setCount] = useState(0);
   const prev = useRef(count);
   const [textEditing, setEditing] = useState(false);
@@ -33,8 +33,9 @@ function ItemAdder({ name, condensed }) {
     setEditing(false);
   };
 
-  const trimmedName = name.trim();
-  const displayName = trimmedName[0].toUpperCase() + trimmedName.slice(1);
+  const capitalizeFirst = (s) => s[0].toUpperCase() + s.slice(1);
+
+  const displayName = capitalizeFirst(condensed ? item.shortName : item.name);
 
   const buttonStyles = "text-lg font-bold border rounded p-1 px-3";
   if (!condensed) {
@@ -75,7 +76,8 @@ function ItemAdder({ name, condensed }) {
   } else if (count > 0) {
     return (
       <div>
-        <span>{displayName}</span>: <span>{count}</span>
+        <span>{displayName}</span>:{" "}
+        <span className="font-semibold">{count}</span>
       </div>
     );
   } else {
