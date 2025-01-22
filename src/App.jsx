@@ -62,6 +62,15 @@ function ItemCounters({ userAddedItems, items, condensed }) {
         if (item.types) {
           return (
             <>
+              {!condensed && (
+                <div className="flex items-center">
+                  <div className="border-b flex-1"></div>
+                  <span className="text-xs text-center leading-[0.1] text-slate-400">
+                    {item.name}
+                  </span>
+                  <div className="border-b flex-1"></div>
+                </div>
+              )}
               {item.types.map((itemFlavor) => {
                 const name = `${itemFlavor.name} ${item.name}`;
                 const shortName = `${itemFlavor.short_name} ${item.short_name}`;
