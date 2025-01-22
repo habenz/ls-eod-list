@@ -49,6 +49,9 @@ function App({ items }) {
 }
 
 function ItemCounters({ userAddedItems, items, condensed }) {
+  const baseHue = 250; // Starting point (e.g., blue)
+  const hueStep = 25; // Step between hues
+
   return (
     <>
       {userAddedItems.map((item) => (
@@ -56,16 +59,20 @@ function ItemCounters({ userAddedItems, items, condensed }) {
           item={{ name: item, shortName: item }}
           key={item}
           condensed={condensed}
+          bgColor={`hsl(${baseHue}, 60%, 90%)`}
         />
       ))}
-      {items.map((item) => {
+      {items.map((item, i) => {
+        const bgColor = `hsl(${
+          baseHue + (((i + 1) * hueStep) % 360)
+        }, 60%, 90%)`;
         if (item.types) {
           return (
             <>
               {!condensed && (
                 <div className="flex items-center">
                   <div className="border-b flex-1"></div>
-                  <span className="text-xs text-center leading-[0.1] text-slate-400">
+                  <span className="text-xs text-center leading-[0.1] text-slate-500">
                     {item.name}
                   </span>
                   <div className="border-b flex-1"></div>
@@ -79,7 +86,12 @@ function ItemCounters({ userAddedItems, items, condensed }) {
                   shortName: shortName.trim(),
                 };
                 return (
-                  <ItemAdder item={itemProp} key={name} condensed={condensed} />
+                  <ItemAdder
+                    item={itemProp}
+                    key={name}
+                    condensed={condensed}
+                    bgColor={bgColor}
+                  />
                 );
               })}
             </>
@@ -90,6 +102,7 @@ function ItemCounters({ userAddedItems, items, condensed }) {
               item={{ name: item.name, shortName: item.short_name }}
               key={item.name}
               condensed={condensed}
+              bgColor={bgColor}
             />
           );
         }
