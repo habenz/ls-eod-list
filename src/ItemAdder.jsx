@@ -52,7 +52,7 @@ function ItemAdder({ item, condensed, bgColor }) {
               {textEditing ? (
                 <input
                   type="number"
-                  value={count}
+                  value={count === 0 ? "" : count}
                   className="w-12 text-center"
                   autoFocus
                   onBlur={stopEditing}
