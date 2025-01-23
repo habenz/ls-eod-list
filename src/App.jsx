@@ -16,7 +16,9 @@ function App({ items }) {
     return false;
   };
 
-  const condensedStyles = showCondensed ? "grid grid-cols-2" : "";
+  const condensedStyles = showCondensed
+    ? "grid grid-cols-2 p-3 m-2 border rounded"
+    : "";
 
   return (
     <div className="flex justify-center w-full">
@@ -42,6 +44,16 @@ function App({ items }) {
           >
             Send Screenshot
           </button>
+        )}
+        {showCondensed && (
+          <div className="col-start-1 col-span-2 justify-center mt-4 flex">
+            <button
+              onClick={() => setShowCondensed(false)}
+              className="bg-black rounded text-slate-200 w-max p-1"
+            >
+              Change Counts
+            </button>
+          </div>
         )}
       </div>
     </div>
