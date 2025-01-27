@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ItemAdder from "./ItemAdder";
+import ItemCounter from "./ItemCounter";
 import NewItemAdder from "./NewItemAdder";
 
 function App({ items }) {
@@ -67,7 +67,7 @@ function ItemCounters({ userAddedItems, items, condensed }) {
   return (
     <>
       {userAddedItems.map((item) => (
-        <ItemAdder
+        <ItemCounter
           item={{ name: item, shortName: item }}
           key={item}
           condensed={condensed}
@@ -98,7 +98,7 @@ function ItemCounters({ userAddedItems, items, condensed }) {
                   shortName: shortName.trim(),
                 };
                 return (
-                  <ItemAdder
+                  <ItemCounter
                     item={itemProp}
                     key={name}
                     condensed={condensed}
@@ -110,7 +110,7 @@ function ItemCounters({ userAddedItems, items, condensed }) {
           );
         } else {
           return (
-            <ItemAdder
+            <ItemCounter
               item={{ name: item.name, shortName: item.short_name }}
               key={item.name}
               condensed={condensed}
