@@ -1,9 +1,12 @@
 croissant: plain, chocolate, multigrain, raisin, almond, pistachio, fruit
 - crx: plain, choc, multi, rais, almond, pista, fruit
+category: laminated
 kouign-amann
 - k-amann
+category: laminated
 palmier
 - palm
+category: laminated
 brioche frite
 - b-frite
 scone: feta-zatar, marzipan, pesto gruyere, pear lemon
@@ -17,12 +20,16 @@ pound cake: choc hazelnut, vanilla, matcha, pumpkin
 
 barbari
 - barbari
+category: bread
 focaccia
 - focc
-brioche
+category: bread
+brioche roll
 - brioche
+category: bread
 baguette
 - baguette
+category: bread
 pizza: cheese, onion, mushroom, arugula
 - pizza: cheese, onion, mush, arugula
 

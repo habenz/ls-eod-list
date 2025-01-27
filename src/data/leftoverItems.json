@@ -31,15 +31,18 @@
         "name": "fruit",
         "short_name": "fruit"
       }
-    ]
+    ],
+    "category": "laminated"
   },
   {
     "name": "kouign-amann",
-    "short_name": "k-amann"
+    "short_name": "k-amann",
+    "category": "laminated"
   },
   {
     "name": "palmier",
-    "short_name": "palm"
+    "short_name": "palm",
+    "category": "laminated"
   },
   {
     "name": "brioche frite",
@@ -129,19 +132,23 @@
   },
   {
     "name": "barbari",
-    "short_name": "barbari"
+    "short_name": "barbari",
+    "category": "bread"
   },
   {
     "name": "focaccia",
-    "short_name": "focc"
+    "short_name": "focc",
+    "category": "bread"
   },
   {
-    "name": "brioche",
-    "short_name": "brioche"
+    "name": "brioche roll",
+    "short_name": "brioche",
+    "category": "bread"
   },
   {
     "name": "baguette",
-    "short_name": "baguette"
+    "short_name": "baguette",
+    "category": "bread"
   },
   {
     "name": "pizza",
