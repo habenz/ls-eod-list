@@ -166,6 +166,24 @@
     ]
   },
   {
+    "name": "cake",
+    "short_name": "cake",
+    "types": [
+      {
+        "name": "pre-ordered",
+        "short_name": "pre-ordered"
+      },
+      {
+        "name": "4\" chocolate",
+        "short_name": "4\" choc"
+      },
+      {
+        "name": "4\" vanilla",
+        "short_name": "4\" van"
+      }
+    ]
+  },
+  {
     "name": "eclair",
     "short_name": "eclair",
     "types": [

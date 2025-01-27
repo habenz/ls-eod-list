@@ -26,6 +26,8 @@ baguette
 pizza: cheese, onion, mushroom, arugula
 - pizza: cheese, onion, mush, arugula
 
+cake: pre-ordered, 4" chocolate, 4" vanilla
+- cake: pre-ordered, 4" choc, 4" van
 eclair: vanilla, chocolate, lavender, cardamom, pistachio
 - eclair: van, choc, lav, card, pista
 cake slice: chocolate, vanilla cheese, akbar cheese
