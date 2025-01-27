@@ -56,6 +56,7 @@ function ItemAdder({ item, condensed, bgColor }) {
                   className="w-12 text-center"
                   autoFocus
                   onBlur={stopEditing}
+                  onKeyDown={(e) => e.key === "Enter" && e.target.blur()}
                   onChange={handleChange}
                 />
               ) : (
