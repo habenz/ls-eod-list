@@ -25,35 +25,19 @@ function App({ items }) {
       <div className={`w-5/6 max-w-lg ${condensedStyles}`}>
         {!showCondensed && (
           <>
-            <h1 className="text-xl flex justify-center mb-2 pb-2 font-semibold border-b">
-              Leftover Inventory
-            </h1>
+            <Title />
             <NewItemAdder addNewItem={addNewItem} />
           </>
         )}
-
         <ItemCounters
           userAddedItems={userAddedItems}
           items={items}
           condensed={showCondensed}
         />
-        {!showCondensed && (
-          <button
-            onClick={() => setShowCondensed(true)}
-            className="w-full py-2 bg-black rounded text-slate-200"
-          >
-            Send Screenshot
-          </button>
-        )}
-        {showCondensed && (
-          <div className="col-start-1 col-span-2 justify-center mt-4 flex">
-            <button
-              onClick={() => setShowCondensed(false)}
-              className="bg-black rounded text-slate-200 w-max p-1"
-            >
-              Change Counts
-            </button>
-          </div>
+        {showCondensed ? (
+          <ChangeCountsButton onClick={() => setShowCondensed(false)} />
+        ) : (
+          <SendScreenshotButton onClick={() => setShowCondensed(true)} />
         )}
       </div>
     </div>
@@ -120,6 +104,38 @@ function ItemCounters({ userAddedItems, items, condensed }) {
         }
       })}
     </>
+  );
+}
+
+function Title() {
+  return (
+    <h1 className="text-xl flex justify-center mb-2 pb-2 font-semibold border-b">
+      Leftover Inventory
+    </h1>
+  );
+}
+
+function SendScreenshotButton({ onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className="w-full py-2 bg-black rounded text-slate-200"
+    >
+      Send Screenshot
+    </button>
+  );
+}
+
+function ChangeCountsButton({ onClick }) {
+  return (
+    <div className="col-start-1 col-span-2 justify-center mt-4 flex">
+      <button
+        onClick={onClick}
+        className="bg-black rounded text-slate-200 w-max p-1"
+      >
+        Change Counts
+      </button>
+    </div>
   );
 }
 
