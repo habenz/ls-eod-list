@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-function ItemAdder({ item, condensed, bgColor }) {
+function ItemCounter({ item, condensed, bgColor }) {
   const [count, setCount] = useState(0);
   const prev = useRef(count);
   const [textEditing, setEditing] = useState(false);
@@ -87,4 +87,4 @@ function ItemAdder({ item, condensed, bgColor }) {
   }
 }
 
-export default ItemAdder;
+export default ItemCounter;
