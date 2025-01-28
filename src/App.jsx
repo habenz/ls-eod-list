@@ -36,7 +36,6 @@ function App({ items }) {
         { name: newItemName, shortName: newItemName, count: 0 },
         ...items,
       ]);
-      console.log(userAddedItems);
       return true;
     }
     return false;
