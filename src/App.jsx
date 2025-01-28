@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ItemCounter from "./ItemCounter";
+import ItemCounters from "./ItemCounters";
 import NewItemAdder from "./NewItemAdder";
 
 function App({ items }) {
@@ -66,64 +66,6 @@ function App({ items }) {
           <SendScreenshotButton onClick={() => setShowCondensed(true)} />
         )}
       </div>
-    </div>
-  );
-}
-
-function ItemCounters({ userAddedItems, items, condensed, setItemCount }) {
-  const baseHue = 250; // Starting point (e.g., blue)
-  const hueStep = 25; // Step between hues
-
-  let seenCategories = new Set();
-  return (
-    <>
-      {userAddedItems.map((item) => (
-        <ItemCounter
-          item={item}
-          key={item.name}
-          condensed={condensed}
-          bgColor={`hsl(${baseHue}, 60%, 90%)`}
-          setItemCount={setItemCount}
-        />
-      ))}
-      {items.map((item, i) => {
-        let isCategoryLeader =
-          !seenCategories.has(item.category) &&
-          i !== items.length - 1 &&
-          items[i + 1].category === item.category;
-
-        if (!seenCategories.has(item.category)) {
-          seenCategories.add(item.category);
-        }
-
-        const hue = baseHue + ((seenCategories.size * hueStep) % 360);
-        const bgColor = `hsl(${hue}, 60%, 90%)`;
-        return (
-          <React.Fragment key={item.name}>
-            {!condensed && isCategoryLeader && (
-              <CategoryBorder name={item.category} />
-            )}
-            <ItemCounter
-              item={item}
-              condensed={condensed}
-              bgColor={bgColor}
-              setItemCount={setItemCount}
-            />
-          </React.Fragment>
-        );
-      })}
-    </>
-  );
-}
-
-function CategoryBorder({ name }) {
-  return (
-    <div className="flex items-center">
-      <div className="border-b flex-1"></div>
-      <span className="text-xs text-center leading-[0.1] text-slate-500">
-        {name}
-      </span>
-      <div className="border-b flex-1"></div>
     </div>
   );
 }
