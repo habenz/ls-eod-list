@@ -3,14 +3,40 @@ import ItemCounter from "./ItemCounter";
 import NewItemAdder from "./NewItemAdder";
 
 function App({ items }) {
+  const [itemCounts, setItemCounts] = useState(items);
   const [userAddedItems, setUserAddedItems] = useState([]);
   const [showCondensed, setShowCondensed] = useState(false);
+
+  const setItemCount = (itemName, newCount) => {
+    if (itemCounts.some(({ name }) => name === itemName)) {
+      setItemCounts((prevCounts) =>
+        prevCounts.map((item) =>
+          item.name === itemName ? { ...item, count: newCount } : item
+        )
+      );
+    } else if (userAddedItems.some(({ name }) => name === itemName)) {
+      setUserAddedItems((prevCounts) =>
+        prevCounts.map((item) =>
+          item.name === itemName ? { ...item, count: newCount } : item
+        )
+      );
+    } else {
+      throw new Error(`Item called ${itemName} does not exist`);
+    }
+  };
 
   const addNewItem = (e) => {
     e.preventDefault();
     const newItemName = e.target[0].value.trim();
-    if (newItemName && !userAddedItems.includes(newItemName)) {
-      setUserAddedItems((items) => [newItemName, ...items]);
+    if (
+      newItemName &&
+      !userAddedItems.some(({ name }) => name === newItemName)
+    ) {
+      setUserAddedItems((items) => [
+        { name: newItemName, shortName: newItemName, count: 0 },
+        ...items,
+      ]);
+      console.log(userAddedItems);
       return true;
     }
     return false;
@@ -31,8 +57,9 @@ function App({ items }) {
         )}
         <ItemCounters
           userAddedItems={userAddedItems}
-          items={items}
+          items={itemCounts}
           condensed={showCondensed}
+          setItemCount={setItemCount}
         />
         {showCondensed ? (
           <ChangeCountsButton onClick={() => setShowCondensed(false)} />
@@ -44,7 +71,7 @@ function App({ items }) {
   );
 }
 
-function ItemCounters({ userAddedItems, items, condensed }) {
+function ItemCounters({ userAddedItems, items, condensed, setItemCount }) {
   const baseHue = 250; // Starting point (e.g., blue)
   const hueStep = 25; // Step between hues
 
@@ -53,10 +80,11 @@ function ItemCounters({ userAddedItems, items, condensed }) {
     <>
       {userAddedItems.map((item) => (
         <ItemCounter
-          item={{ name: item, shortName: item }}
+          item={item}
           key={item}
           condensed={condensed}
           bgColor={`hsl(${baseHue}, 60%, 90%)`}
+          setItemCount={setItemCount}
         />
       ))}
       {items.map((item, i) => {
@@ -76,7 +104,12 @@ function ItemCounters({ userAddedItems, items, condensed }) {
             {!condensed && isCategoryLeader && (
               <CategoryBorder name={item.category} />
             )}
-            <ItemCounter item={item} condensed={condensed} bgColor={bgColor} />
+            <ItemCounter
+              item={item}
+              condensed={condensed}
+              bgColor={bgColor}
+              setItemCount={setItemCount}
+            />
           </React.Fragment>
         );
       })}

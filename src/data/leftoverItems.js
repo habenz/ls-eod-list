@@ -7,6 +7,7 @@ leftoverItems.forEach((item) => {
       name: item.name,
       shortName: item.short_name,
       category: item.category || item.name,
+      count: 0,
     });
     return;
   }
@@ -17,6 +18,7 @@ leftoverItems.forEach((item) => {
       name: name.trim(),
       shortName: shortName.trim(),
       category: item.category || item.name,
+      count: 0,
     });
   });
 });
