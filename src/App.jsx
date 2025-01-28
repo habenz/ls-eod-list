@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import ItemCounter from "./ItemCounter";
 import NewItemAdder from "./NewItemAdder";
 
@@ -48,6 +48,7 @@ function ItemCounters({ userAddedItems, items, condensed }) {
   const baseHue = 250; // Starting point (e.g., blue)
   const hueStep = 25; // Step between hues
 
+  let seenCategories = new Set();
   return (
     <>
       {userAddedItems.map((item) => (
@@ -59,51 +60,40 @@ function ItemCounters({ userAddedItems, items, condensed }) {
         />
       ))}
       {items.map((item, i) => {
-        const bgColor = `hsl(${
-          baseHue + (((i + 1) * hueStep) % 360)
-        }, 60%, 90%)`;
-        if (item.types) {
-          return (
-            <>
-              {!condensed && (
-                <div className="flex items-center">
-                  <div className="border-b flex-1"></div>
-                  <span className="text-xs text-center leading-[0.1] text-slate-500">
-                    {item.name}
-                  </span>
-                  <div className="border-b flex-1"></div>
-                </div>
-              )}
-              {item.types.map((itemFlavor) => {
-                const name = `${itemFlavor.name} ${item.name}`;
-                const shortName = `${itemFlavor.short_name} ${item.short_name}`;
-                const itemProp = {
-                  name: name.trim(),
-                  shortName: shortName.trim(),
-                };
-                return (
-                  <ItemCounter
-                    item={itemProp}
-                    key={name}
-                    condensed={condensed}
-                    bgColor={bgColor}
-                  />
-                );
-              })}
-            </>
-          );
-        } else {
-          return (
-            <ItemCounter
-              item={{ name: item.name, shortName: item.short_name }}
-              key={item.name}
-              condensed={condensed}
-              bgColor={bgColor}
-            />
-          );
+        let isCategoryLeader =
+          !seenCategories.has(item.category) &&
+          i !== items.length - 1 &&
+          items[i + 1].category === item.category;
+
+        if (!seenCategories.has(item.category)) {
+          seenCategories.add(item.category);
         }
+
+        const bgColor = `hsl(${
+          baseHue + ((seenCategories.size * hueStep) % 360)
+        }, 60%, 90%)`;
+        return (
+          <React.Fragment key={item.name}>
+            {!condensed && isCategoryLeader && (
+              <CategoryBorder name={item.category} />
+            )}
+            <ItemCounter item={item} condensed={condensed} bgColor={bgColor} />
+          </React.Fragment>
+        );
       })}
     </>
+  );
+}
+
+function CategoryBorder({ name }) {
+  return (
+    <div className="flex items-center">
+      <div className="border-b flex-1"></div>
+      <span className="text-xs text-center leading-[0.1] text-slate-500">
+        {name}
+      </span>
+      <div className="border-b flex-1"></div>
+    </div>
   );
 }
 

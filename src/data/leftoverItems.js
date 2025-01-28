@@ -21,6 +21,4 @@ leftoverItems.forEach((item) => {
   });
 });
 
-console.log(items);
-
 export default items;
