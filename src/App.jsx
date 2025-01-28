@@ -69,9 +69,8 @@ function ItemCounters({ userAddedItems, items, condensed }) {
           seenCategories.add(item.category);
         }
 
-        const bgColor = `hsl(${
-          baseHue + ((seenCategories.size * hueStep) % 360)
-        }, 60%, 90%)`;
+        const hue = baseHue + ((seenCategories.size * hueStep) % 360);
+        const bgColor = `hsl(${hue}, 60%, 90%)`;
         return (
           <React.Fragment key={item.name}>
             {!condensed && isCategoryLeader && (
