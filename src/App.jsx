@@ -81,7 +81,7 @@ function ItemCounters({ userAddedItems, items, condensed, setItemCount }) {
       {userAddedItems.map((item) => (
         <ItemCounter
           item={item}
-          key={item}
+          key={item.name}
           condensed={condensed}
           bgColor={`hsl(${baseHue}, 60%, 90%)`}
           setItemCount={setItemCount}
