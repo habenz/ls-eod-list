@@ -1,16 +1,15 @@
 import { useState, useRef } from "react";
 
-function ItemCounter({ item, condensed, bgColor }) {
-  const [count, setCount] = useState(0);
-  const prev = useRef(count);
+function ItemCounter({ item, condensed, bgColor, setItemCount }) {
+  const prev = useRef(item.count);
   const [textEditing, setEditing] = useState(false);
 
   const updateCount = (amt) => {
-    if (count + amt < 0) {
+    if (item.count + amt < 0) {
       return;
     }
-    setCount((currCount) => currCount + amt);
-    prev.current = count + amt;
+    prev.current = item.count + amt;
+    setItemCount(item.count + amt);
   };
   const increment = () => updateCount(1);
   const decrement = () => updateCount(-1);
@@ -18,7 +17,7 @@ function ItemCounter({ item, condensed, bgColor }) {
   const handleChange = (e) => {
     const value = e.target.value;
     const valueAsNum = parseInt(value);
-    setCount(value);
+    setItemCount(value);
     // lock it in if it's a valid value
     if (Number.isInteger(valueAsNum) && valueAsNum >= 0) {
       prev.current = valueAsNum;
@@ -26,9 +25,9 @@ function ItemCounter({ item, condensed, bgColor }) {
   };
 
   const stopEditing = () => {
-    if (count !== prev.current) {
+    if (item.count !== prev.current) {
       // revert to most recent valid count
-      setCount(prev.current);
+      setItemCount(prev.current);
     }
     setEditing(false);
   };
@@ -52,7 +51,7 @@ function ItemCounter({ item, condensed, bgColor }) {
               {textEditing ? (
                 <input
                   type="number"
-                  value={count === 0 ? "" : count}
+                  value={item.count === 0 ? "" : item.count}
                   className="w-12 text-center"
                   autoFocus
                   onBlur={stopEditing}
@@ -64,7 +63,7 @@ function ItemCounter({ item, condensed, bgColor }) {
                   className="w-12 text-center cursor-pointer hover:bg-gray-100"
                   onClick={() => setEditing(true)}
                 >
-                  {count}
+                  {item.count}
                 </div>
               )}
             </div>
@@ -75,11 +74,11 @@ function ItemCounter({ item, condensed, bgColor }) {
         </div>
       </div>
     );
-  } else if (count > 0) {
+  } else if (item.count > 0) {
     return (
       <div>
         <span>{displayName}</span>:{" "}
-        <span className="font-semibold">{count}</span>
+        <span className="font-semibold">{item.count}</span>
       </div>
     );
   } else {

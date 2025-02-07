@@ -31,15 +31,18 @@
         "name": "fruit",
         "short_name": "fruit"
       }
-    ]
+    ],
+    "category": "laminated"
   },
   {
     "name": "kouign-amann",
-    "short_name": "k-amann"
+    "short_name": "k-amann",
+    "category": "laminated"
   },
   {
     "name": "palmier",
-    "short_name": "palm"
+    "short_name": "palm",
+    "category": "laminated"
   },
   {
     "name": "brioche frite",
@@ -132,22 +135,6 @@
     ]
   },
   {
-    "name": "barbari",
-    "short_name": "barbari"
-  },
-  {
-    "name": "focaccia",
-    "short_name": "focc"
-  },
-  {
-    "name": "brioche",
-    "short_name": "brioche"
-  },
-  {
-    "name": "baguette",
-    "short_name": "baguette"
-  },
-  {
     "name": "pizza",
     "short_name": "pizza",
     "types": [
@@ -170,22 +157,24 @@
     ]
   },
   {
-    "name": "cake",
-    "short_name": "cake",
-    "types": [
-      {
-        "name": "pre-ordered",
-        "short_name": "pre-ordered"
-      },
-      {
-        "name": "4\" chocolate",
-        "short_name": "4\" choc"
-      },
-      {
-        "name": "4\" vanilla",
-        "short_name": "4\" van"
-      }
-    ]
+    "name": "barbari",
+    "short_name": "barbari",
+    "category": "bread"
+  },
+  {
+    "name": "focaccia",
+    "short_name": "focc",
+    "category": "bread"
+  },
+  {
+    "name": "brioche roll",
+    "short_name": "brioche",
+    "category": "bread"
+  },
+  {
+    "name": "baguette",
+    "short_name": "baguette",
+    "category": "bread"
   },
   {
     "name": "eclair",
@@ -228,6 +217,24 @@
       {
         "name": "akbar cheese",
         "short_name": "akbar"
+      }
+    ]
+  },
+  {
+    "name": "cake",
+    "short_name": "cake",
+    "types": [
+      {
+        "name": "pre-ordered",
+        "short_name": "pre-ordered"
+      },
+      {
+        "name": "4\" chocolate",
+        "short_name": "4\" choc"
+      },
+      {
+        "name": "4\" vanilla",
+        "short_name": "4\" van"
       }
     ]
   },

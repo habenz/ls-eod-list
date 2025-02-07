@@ -16,6 +16,8 @@ with open("raw.txt", encoding="utf-8-sig") as f:
                 types.append({"name": name.strip(), "short_name": short.strip()})
             curr_item["types"] = types
             items.append(curr_item)
+        elif line.startswith("category"):
+            curr_item["category"] = line.lstrip("category: ")
         elif ":" in line:
             curr_item = {}
             name, type_names = line.split(":")

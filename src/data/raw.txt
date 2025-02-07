@@ -1,9 +1,12 @@
 croissant: plain, chocolate, multigrain, raisin, almond, pistachio, fruit
 - crx: plain, choc, multi, rais, almond, pista, fruit
+category: laminated
 kouign-amann
 - k-amann
+category: laminated
 palmier
 - palm
+category: laminated
 brioche frite
 - b-frite
 scone: feta-zatar, marzipan, tomato gorgonzola, pesto gruyere, pear lemon
@@ -14,24 +17,28 @@ brownie
 - brownie
 pound cake: choc hazelnut, vanilla, matcha, pumpkin
 - LB: choc-haze, van, matcha, pumpkin
-
-barbari
-- barbari
-focaccia
-- focc
-brioche
-- brioche
-baguette
-- baguette
 pizza: cheese, onion, mushroom, arugula
 - pizza: cheese, onion, mush, arugula
 
-cake: pre-ordered, 4" chocolate, 4" vanilla
-- cake: pre-ordered, 4" choc, 4" van
+barbari
+- barbari
+category: bread
+focaccia
+- focc
+category: bread
+brioche roll
+- brioche
+category: bread
+baguette
+- baguette
+category: bread
+
 eclair: vanilla, chocolate, lavender, cardamom, pistachio
 - eclair: van, choc, lav, card, pista
 cake slice: chocolate, vanilla cheese, akbar cheese
 - slice: choc, van cheese, akbar
+cake: pre-ordered, 4" chocolate, 4" vanilla
+- cake: pre-ordered, 4" choc, 4" van
 tiramisu: , vegan
 - tira: , veg
 

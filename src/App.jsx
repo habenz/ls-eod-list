@@ -1,20 +1,12 @@
-import { useState } from "react";
-import ItemCounter from "./ItemCounter";
+import React, { useState } from "react";
+import ItemCounters from "./ItemCounters";
 import NewItemAdder from "./NewItemAdder";
+import useItemCounts from "./useItemCounts";
 
 function App({ items }) {
-  const [userAddedItems, setUserAddedItems] = useState([]);
   const [showCondensed, setShowCondensed] = useState(false);
-
-  const addNewItem = (e) => {
-    e.preventDefault();
-    const newItemName = e.target[0].value.trim();
-    if (newItemName && !userAddedItems.includes(newItemName)) {
-      setUserAddedItems((items) => [newItemName, ...items]);
-      return true;
-    }
-    return false;
-  };
+  const { itemCounts, userAddedItems, itemUpdaterByName, addNewItem } =
+    useItemCounts(items);
 
   const condensedStyles = showCondensed
     ? "grid grid-cols-2 p-3 m-2 border rounded"
@@ -31,8 +23,9 @@ function App({ items }) {
         )}
         <ItemCounters
           userAddedItems={userAddedItems}
-          items={items}
+          items={itemCounts}
           condensed={showCondensed}
+          itemUpdaterFactory={itemUpdaterByName}
         />
         {showCondensed ? (
           <ChangeCountsButton onClick={() => setShowCondensed(false)} />
@@ -41,69 +34,6 @@ function App({ items }) {
         )}
       </div>
     </div>
-  );
-}
-
-function ItemCounters({ userAddedItems, items, condensed }) {
-  const baseHue = 250; // Starting point (e.g., blue)
-  const hueStep = 25; // Step between hues
-
-  return (
-    <>
-      {userAddedItems.map((item) => (
-        <ItemCounter
-          item={{ name: item, shortName: item }}
-          key={item}
-          condensed={condensed}
-          bgColor={`hsl(${baseHue}, 60%, 90%)`}
-        />
-      ))}
-      {items.map((item, i) => {
-        const bgColor = `hsl(${
-          baseHue + (((i + 1) * hueStep) % 360)
-        }, 60%, 90%)`;
-        if (item.types) {
-          return (
-            <>
-              {!condensed && (
-                <div className="flex items-center">
-                  <div className="border-b flex-1"></div>
-                  <span className="text-xs text-center leading-[0.1] text-slate-500">
-                    {item.name}
-                  </span>
-                  <div className="border-b flex-1"></div>
-                </div>
-              )}
-              {item.types.map((itemFlavor) => {
-                const name = `${itemFlavor.name} ${item.name}`;
-                const shortName = `${itemFlavor.short_name} ${item.short_name}`;
-                const itemProp = {
-                  name: name.trim(),
-                  shortName: shortName.trim(),
-                };
-                return (
-                  <ItemCounter
-                    item={itemProp}
-                    key={name}
-                    condensed={condensed}
-                    bgColor={bgColor}
-                  />
-                );
-              })}
-            </>
-          );
-        } else {
-          return (
-            <ItemCounter
-              item={{ name: item.name, shortName: item.short_name }}
-              key={item.name}
-              condensed={condensed}
-              bgColor={bgColor}
-            />
-          );
-        }
-      })}
-    </>
   );
 }
 
