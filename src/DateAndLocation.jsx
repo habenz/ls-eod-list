@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { contentWidth, actionButton } from "./AppStyles";
 import { FaExchangeAlt } from "react-icons/fa";
+import useLocalStorage from "./useLocalStorage";
 
 function DateAndLocation() {
-  const [inCharlestown, setLocation] = useState(true);
+  const { value: location, setValue: setLocation } = useLocalStorage(
+    "location",
+    "Charlestown"
+  );
   const toggleLocation = () => {
-    setLocation((curr) => !curr);
+    setLocation(location === "Charlestown" ? "Cambridge" : "Charlestown");
   };
 
   const date = new Date(Date.now());
@@ -14,7 +18,7 @@ function DateAndLocation() {
   return (
     <div className={`flex ${contentWidth} mt-2`}>
       <span className="mr-auto ml-1">{dateString}</span>
-      <span>{inCharlestown ? "Charlestown" : "Cambridge"} </span>
+      <span>{location}</span>
       <button
         className={`mx-3 p-1 px-2 ${actionButton}`}
         onClick={toggleLocation}
