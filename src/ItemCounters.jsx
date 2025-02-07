@@ -1,7 +1,12 @@
 import { Fragment } from "react";
 import ItemCounter from "./ItemCounter";
 
-function ItemCounters({ userAddedItems, items, condensed, setItemCount }) {
+function ItemCounters({
+  userAddedItems,
+  items,
+  condensed,
+  itemUpdaterFactory,
+}) {
   const baseHue = 250; // Starting point (e.g., blue)
   const hueStep = 25; // Step between hues
 
@@ -14,7 +19,7 @@ function ItemCounters({ userAddedItems, items, condensed, setItemCount }) {
           key={item.name}
           condensed={condensed}
           bgColor={`hsl(${baseHue}, 60%, 90%)`}
-          setItemCount={setItemCount}
+          setItemCount={itemUpdaterFactory(item.name)}
         />
       ))}
       {items.map((item, i) => {
@@ -38,7 +43,7 @@ function ItemCounters({ userAddedItems, items, condensed, setItemCount }) {
               item={item}
               condensed={condensed}
               bgColor={bgColor}
-              setItemCount={setItemCount}
+              setItemCount={itemUpdaterFactory(item.name)}
             />
           </Fragment>
         );

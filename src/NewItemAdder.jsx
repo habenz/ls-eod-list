@@ -4,7 +4,9 @@ function NewItemAdder({ addNewItem }) {
   const [newItemName, setNewItemName] = useState("");
 
   const onSubmit = (e) => {
-    const success = addNewItem(e);
+    e.preventDefault();
+    const newItemName = e.target[0].value.trim();
+    const success = addNewItem(newItemName);
     if (success) {
       setNewItemName("");
     }

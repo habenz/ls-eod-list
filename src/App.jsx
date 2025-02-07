@@ -1,45 +1,12 @@
 import React, { useState } from "react";
 import ItemCounters from "./ItemCounters";
 import NewItemAdder from "./NewItemAdder";
+import useItemCounts from "./useItemCounts";
 
 function App({ items }) {
-  const [itemCounts, setItemCounts] = useState(items);
-  const [userAddedItems, setUserAddedItems] = useState([]);
   const [showCondensed, setShowCondensed] = useState(false);
-
-  const setItemCount = (itemName, newCount) => {
-    if (itemCounts.some(({ name }) => name === itemName)) {
-      setItemCounts((prevCounts) =>
-        prevCounts.map((item) =>
-          item.name === itemName ? { ...item, count: newCount } : item
-        )
-      );
-    } else if (userAddedItems.some(({ name }) => name === itemName)) {
-      setUserAddedItems((prevCounts) =>
-        prevCounts.map((item) =>
-          item.name === itemName ? { ...item, count: newCount } : item
-        )
-      );
-    } else {
-      throw new Error(`Item called ${itemName} does not exist`);
-    }
-  };
-
-  const addNewItem = (e) => {
-    e.preventDefault();
-    const newItemName = e.target[0].value.trim();
-    if (
-      newItemName &&
-      !userAddedItems.some(({ name }) => name === newItemName)
-    ) {
-      setUserAddedItems((items) => [
-        { name: newItemName, shortName: newItemName, count: 0 },
-        ...items,
-      ]);
-      return true;
-    }
-    return false;
-  };
+  const { itemCounts, userAddedItems, itemUpdaterByName, addNewItem } =
+    useItemCounts(items);
 
   const condensedStyles = showCondensed
     ? "grid grid-cols-2 p-3 m-2 border rounded"
@@ -58,7 +25,7 @@ function App({ items }) {
           userAddedItems={userAddedItems}
           items={itemCounts}
           condensed={showCondensed}
-          setItemCount={setItemCount}
+          itemUpdaterFactory={itemUpdaterByName}
         />
         {showCondensed ? (
           <ChangeCountsButton onClick={() => setShowCondensed(false)} />

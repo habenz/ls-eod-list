@@ -9,7 +9,7 @@ function ItemCounter({ item, condensed, bgColor, setItemCount }) {
       return;
     }
     prev.current = item.count + amt;
-    setItemCount(item.name, item.count + amt);
+    setItemCount(item.count + amt);
   };
   const increment = () => updateCount(1);
   const decrement = () => updateCount(-1);
@@ -17,7 +17,7 @@ function ItemCounter({ item, condensed, bgColor, setItemCount }) {
   const handleChange = (e) => {
     const value = e.target.value;
     const valueAsNum = parseInt(value);
-    setItemCount(item.name, value);
+    setItemCount(value);
     // lock it in if it's a valid value
     if (Number.isInteger(valueAsNum) && valueAsNum >= 0) {
       prev.current = valueAsNum;
@@ -27,7 +27,7 @@ function ItemCounter({ item, condensed, bgColor, setItemCount }) {
   const stopEditing = () => {
     if (item.count !== prev.current) {
       // revert to most recent valid count
-      setItemCount(item.name, prev.current);
+      setItemCount(prev.current);
     }
     setEditing(false);
   };
