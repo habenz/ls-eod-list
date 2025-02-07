@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import ItemCounters from "./ItemCounters";
 import NewItemAdder from "./NewItemAdder";
 import useItemCounts from "./useItemCounts";
+import DateAndLocation from "./DateAndLocation";
+import { contentWidth } from "./AppStyles";
 
 function App({ items }) {
   const [showCondensed, setShowCondensed] = useState(false);
@@ -13,8 +15,9 @@ function App({ items }) {
     : "";
 
   return (
-    <div className="flex justify-center w-full">
-      <div className={`w-5/6 max-w-lg ${condensedStyles}`}>
+    <div className="flex flex-col justify-center items-center w-full">
+      {showCondensed && <DateAndLocation />}
+      <div className={`${contentWidth} ${condensedStyles}`}>
         {!showCondensed && (
           <>
             <Title />
