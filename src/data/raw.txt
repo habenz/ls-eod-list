@@ -9,8 +9,8 @@ palmier
 category: laminated
 brioche frite
 - b-frite
-scone: feta-zatar, marzipan, pesto gruyere, pear lemon
-- scone: feta, marz, pesto, lemon
+scone: feta-zatar, marzipan, tomato gorgonzola, pesto gruyere, pear lemon
+- scone: feta, marz, tomato, pesto, lemon
 cookie: brown butter choc-chip, fudge, chai choc-chip, vegan chip, cherry oat, pumpkin, dog
 - cookie: BBCC, fudge, chai, veg, cherry, pumpkin, dog
 brownie
