@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { actionButton } from "./AppStyles";
 
 function NewItemAdder({ addNewItem }) {
   const [newItemName, setNewItemName] = useState("");
@@ -21,7 +22,7 @@ function NewItemAdder({ addNewItem }) {
           placeholder="New item name"
           className="flex-grow border border-slate-400 rounded p-1"
         />
-        <button type="submit" className="bg-black rounded px-3 text-slate-200">
+        <button type="submit" className={`${actionButton} px-3`}>
           Add Item
         </button>
       </form>

@@ -3,7 +3,7 @@ import ItemCounters from "./ItemCounters";
 import NewItemAdder from "./NewItemAdder";
 import useItemCounts from "./useItemCounts";
 import DateAndLocation from "./DateAndLocation";
-import { contentWidth } from "./AppStyles";
+import { actionButton, contentWidth } from "./AppStyles";
 
 function App({ items }) {
   const [showCondensed, setShowCondensed] = useState(false);
@@ -50,10 +50,7 @@ function Title() {
 
 function SendScreenshotButton({ onClick }) {
   return (
-    <button
-      onClick={onClick}
-      className="w-full py-2 bg-black rounded text-slate-200"
-    >
+    <button onClick={onClick} className={`w-full py-2 ${actionButton}`}>
       Send Screenshot
     </button>
   );
@@ -62,10 +59,7 @@ function SendScreenshotButton({ onClick }) {
 function ChangeCountsButton({ onClick }) {
   return (
     <div className="col-start-1 col-span-2 justify-center mt-4 flex">
-      <button
-        onClick={onClick}
-        className="bg-black rounded text-slate-200 w-max p-1"
-      >
+      <button onClick={onClick} className={`${actionButton} w-max p-1`}>
         Change Counts
       </button>
     </div>
