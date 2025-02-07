@@ -4,7 +4,6 @@ export default function useLocalStorage(key, defaultValue) {
   const [value, setValue] = useState(() => {
     // As written this just overwrites keys so it's up to the user to make
     // sure the key doesn't already exist.
-    console.log("executing");
     const stored = window.localStorage.getItem(key);
     if (stored) {
       return JSON.parse(stored);
