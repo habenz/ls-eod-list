@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import ItemCounter from "./ItemCounter";
+import CondensedItem from "./CondensedItem";
 
 function ItemCounters({
   userAddedItems,
@@ -9,24 +10,17 @@ function ItemCounters({
 }) {
   const baseHue = 250; // Starting point (e.g., blue)
   const hueStep = 25; // Step between hues
-
+  const shouldShowItem = (item) => !condensed || item.count > 0;
+  let shownItems = [...userAddedItems, ...items].filter(shouldShowItem);
+  console.log(shownItems);
   let seenCategories = new Set();
   return (
     <>
-      {userAddedItems.map((item) => (
-        <ItemCounter
-          item={item}
-          key={item.name}
-          condensed={condensed}
-          bgColor={`hsl(${baseHue}, 60%, 90%)`}
-          setItemCount={itemUpdaterFactory(item.name)}
-        />
-      ))}
-      {items.map((item, i) => {
+      {shownItems.map((item, i) => {
         let isCategoryLeader =
           !seenCategories.has(item.category) &&
-          i !== items.length - 1 &&
-          items[i + 1].category === item.category;
+          i !== shownItems.length - 1 &&
+          shownItems[i + 1].category === item.category;
 
         if (!seenCategories.has(item.category)) {
           seenCategories.add(item.category);
@@ -34,14 +28,18 @@ function ItemCounters({
 
         const hue = baseHue + ((seenCategories.size * hueStep) % 360);
         const bgColor = `hsl(${hue}, 60%, 90%)`;
-        return (
+        return condensed ? (
+          <CondensedItem
+            item={item}
+            bgColor={bgColor}
+            key={item.name}
+            isCategoryLeader={isCategoryLeader}
+          />
+        ) : (
           <Fragment key={item.name}>
-            {!condensed && isCategoryLeader && (
-              <CategoryBorder name={item.category} />
-            )}
+            {isCategoryLeader && <CategoryBorder name={item.category} />}
             <ItemCounter
               item={item}
-              condensed={condensed}
               bgColor={bgColor}
               setItemCount={itemUpdaterFactory(item.name)}
             />

@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
+import { capitalizeFirst } from "./utils";
 
-function ItemCounter({ item, condensed, bgColor, setItemCount }) {
+function ItemCounter({ item, bgColor, setItemCount }) {
   const prev = useRef(item.count);
   const [textEditing, setEditing] = useState(false);
 
@@ -32,58 +33,45 @@ function ItemCounter({ item, condensed, bgColor, setItemCount }) {
     setEditing(false);
   };
 
-  const capitalizeFirst = (s) => s[0].toUpperCase() + s.slice(1);
-
-  const displayName = capitalizeFirst(condensed ? item.shortName : item.name);
+  const displayName = capitalizeFirst(item.name);
 
   const buttonStyles =
     "text-lg font-bold border rounded p-1 px-3 bg-white bg-opacity-70";
-  if (!condensed) {
-    return (
-      <div className="my-0.5 p-1 rounded" style={{ backgroundColor: bgColor }}>
-        <div className="flex justify-between items-center">
-          <div>{displayName}</div>
-          <div className="flex items-center justify-evenly max-w-52">
-            <button onClick={decrement} className={buttonStyles}>
-              {/* Hilariously this is an en dash (–) maybe use an icon */}–
-            </button>
-            <div className="px-2">
-              {textEditing ? (
-                <input
-                  type="number"
-                  value={item.count === 0 ? "" : item.count}
-                  className="w-12 text-center"
-                  autoFocus
-                  onBlur={stopEditing}
-                  onKeyDown={(e) => e.key === "Enter" && e.target.blur()}
-                  onChange={handleChange}
-                />
-              ) : (
-                <div
-                  className="w-12 text-center cursor-pointer hover:bg-gray-100"
-                  onClick={() => setEditing(true)}
-                >
-                  {item.count}
-                </div>
-              )}
-            </div>
-            <button onClick={increment} className={buttonStyles}>
-              +
-            </button>
+  return (
+    <div className="my-0.5 p-1 rounded" style={{ backgroundColor: bgColor }}>
+      <div className="flex justify-between items-center">
+        <div>{displayName}</div>
+        <div className="flex items-center justify-evenly max-w-52">
+          <button onClick={decrement} className={buttonStyles}>
+            {/* Hilariously this is an en dash (–) maybe use an icon */}–
+          </button>
+          <div className="px-2">
+            {textEditing ? (
+              <input
+                type="number"
+                value={item.count === 0 ? "" : item.count}
+                className="w-12 text-center"
+                autoFocus
+                onBlur={stopEditing}
+                onKeyDown={(e) => e.key === "Enter" && e.target.blur()}
+                onChange={handleChange}
+              />
+            ) : (
+              <div
+                className="w-12 text-center cursor-pointer hover:bg-gray-100"
+                onClick={() => setEditing(true)}
+              >
+                {item.count}
+              </div>
+            )}
           </div>
+          <button onClick={increment} className={buttonStyles}>
+            +
+          </button>
         </div>
       </div>
-    );
-  } else if (item.count > 0) {
-    return (
-      <div>
-        <span>{displayName}</span>:{" "}
-        <span className="font-semibold">{item.count}</span>
-      </div>
-    );
-  } else {
-    return null;
-  }
+    </div>
+  );
 }
 
 export default ItemCounter;
