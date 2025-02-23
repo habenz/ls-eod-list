@@ -1,0 +1,22 @@
+sourdough: plain, multigrain, yogurt, olive, fig-walnut, cranberry-pecan
+- SD: plain, multi, yog, olive, FW, CP
+category: bread
+
+cake slice: akbar cheese, pumpkin cheese
+- slice: akbar, pump cheese
+
+hard boiled egg
+- egg
+
+focaccia: everything, sesame, pecarino, plain
+- focc: evry, sesa, peca, plain
+category: bread
+
+pizza: arugula, soppressata 
+- pizza: arugula, sopp
+
+hummus: olive
+- hum, olive
+
+cake: 4" chocolate, 6" chocolate, 8" chocolate, 10" chocolate, 4" vanilla, 6" vanilla, 8" vanilla, 10" vanilla
+- cake: 4" choc, 6" choc, 8" choc, 10" choc, 4" van, 6" van, 8" van, 10" van
