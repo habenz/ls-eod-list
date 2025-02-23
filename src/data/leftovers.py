@@ -1,7 +1,14 @@
 import json
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "file", help="name of txt file to take as input. outputs json file of the same name"
+)
+file_name = parser.parse_args().file
 
 items = []
-with open("raw.txt", encoding="utf-8-sig") as f:
+with open(file_name, encoding="utf-8-sig") as f:
     for line in f:
         line = line.strip()
         if not line:
@@ -30,5 +37,6 @@ with open("raw.txt", encoding="utf-8-sig") as f:
             curr_item = {}
             curr_item["name"] = line
 
-with open("leftoverItems.json", "w") as f:
+output_file_name = file_name.strip(".txt") + ".json"
+with open(output_file_name, "w") as f:
     json.dump(items, f, indent=2)
