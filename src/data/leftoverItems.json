@@ -149,10 +149,6 @@
       {
         "name": "mushroom",
         "short_name": "mush"
-      },
-      {
-        "name": "arugula",
-        "short_name": "arugula"
       }
     ]
   },
@@ -213,10 +209,6 @@
       {
         "name": "vanilla cheese",
         "short_name": "van cheese"
-      },
-      {
-        "name": "akbar cheese",
-        "short_name": "akbar"
       }
     ]
   },
@@ -227,14 +219,6 @@
       {
         "name": "pre-ordered",
         "short_name": "pre-ordered"
-      },
-      {
-        "name": "4\" chocolate",
-        "short_name": "4\" choc"
-      },
-      {
-        "name": "4\" vanilla",
-        "short_name": "4\" van"
       }
     ]
   },
@@ -255,9 +239,5 @@
   {
     "name": "parfait",
     "short_name": "parfait"
-  },
-  {
-    "name": "hard boiled egg",
-    "short_name": "egg"
   }
 ]
