@@ -1,5 +1,13 @@
 import useLocalStorage from "./useLocalStorage";
 
+// Development helper to manually test reset functionality
+export function debugForceReset() {
+  localStorage.setItem(
+    "last-reset-date",
+    JSON.stringify(new Date().getDate() - 1)
+  );
+}
+
 function useItemCounts(initialItems) {
   const [itemCounts, setItemCounts] = useLocalStorage(
     "default-items",
@@ -9,6 +17,18 @@ function useItemCounts(initialItems) {
     "user-added-items",
     []
   );
+  const [lastResetDate, setLastResetDate] = useLocalStorage(
+    "last-reset-date",
+    ""
+  );
+
+  // Check if we need to reset (different day)
+  const today = new Date().getDate();
+  if (lastResetDate !== today) {
+    setItemCounts(initialItems);
+    setUserAddedItems([]);
+    setLastResetDate(today);
+  }
 
   const setItemCount = (itemName, newCount) => {
     const updateCounts = (prevCounts) =>
