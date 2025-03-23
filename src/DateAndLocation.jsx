@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { contentWidth, actionButton } from "./AppStyles";
 import { FaExchangeAlt } from "react-icons/fa";
 import useLocalStorage from "./useLocalStorage";
