@@ -1,13 +1,9 @@
-import { useState } from "react";
 import { contentWidth, actionButton } from "./AppStyles";
 import { FaExchangeAlt } from "react-icons/fa";
 import useLocalStorage from "./useLocalStorage";
 
 function DateAndLocation() {
-  const { value: location, setValue: setLocation } = useLocalStorage(
-    "location",
-    "Charlestown"
-  );
+  const [location, setLocation] = useLocalStorage("location", "Charlestown");
   const toggleLocation = () => {
     setLocation(location === "Charlestown" ? "Cambridge" : "Charlestown");
   };
