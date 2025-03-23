@@ -4,7 +4,7 @@ import { FaExchangeAlt } from "react-icons/fa";
 import useLocalStorage from "./useLocalStorage";
 
 function DateAndLocation() {
-  const { value: location, setValue: setLocation } = useLocalStorage(
+  const [location, setLocation] = useLocalStorage(
     "location",
     "Charlestown"
   );
