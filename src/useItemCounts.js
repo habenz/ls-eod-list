@@ -1,8 +1,9 @@
 import { useState } from "react";
+import useLocalStorage from "./useLocalStorage";
 
 function useItemCounts(initialItems) {
-  const [itemCounts, setItemCounts] = useState(initialItems);
-  const [userAddedItems, setUserAddedItems] = useState([]);
+  const [itemCounts, setItemCounts] = useLocalStorage("default-items", initialItems);
+  const [userAddedItems, setUserAddedItems] = useLocalStorage("user-added-items", []);
 
   const setItemCount = (itemName, newCount) => {
     const updateCounts = (prevCounts) =>
